@@ -10,6 +10,7 @@
        <!-- Fonts -->
        <link rel="dns-prefetch" href="//fonts.gstatic.com">
        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/frontend.min.css') }}" rel="stylesheet">
 
@@ -42,6 +43,13 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="{{ asset('assets/backend/lib/jquery/jquery.js') }}"></script>
     <script src="{{ asset('js/frontend.bundle.min.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if (session('status'))
+        <script>
+            swal("{{ session('status') }}");
+        </script>
+    @endif
   </body>
 </html>

@@ -22,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[FrontendController::class,'index']);
+Route::get('/category/product/{slug}',[FrontendController::class,'showcategory']);
+Route::get('/category/{category_slug}/{product_name}',[FrontendController::class,'showsingleproduct']);
+
+
 
 Auth::routes();
 

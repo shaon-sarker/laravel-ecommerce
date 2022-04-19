@@ -28,7 +28,7 @@
 
 <!------ SLider Part end------>
 
-<!------ Tranding Produc Part------>
+<!------ Tranding Product Part------>
       <div class="py-5">
         <div class="container">
             <div class="row">
@@ -49,5 +49,35 @@
             </div>
         </div>
       </div>
-<!------ Tranding Produc Part end------>
+<!------ Tranding Product Part end------>
+
+
+<!------ Tranding Category Part------>
+<div class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="card-head text-center">
+                <h2>Tranding Category</h2>
+            </div>
+            @foreach ($category as $categroy_data)
+            <div class="col-md-3 mt-5">
+
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ url('/category/product') }}/{{ $categroy_data->slug }}">
+                            <img src="{{ asset('uploads/category') }}/{{ $categroy_data->image }}" class="card-img-top" alt="Category Image">
+                        </a>
+                        <div class="card-body">
+                          <h5 class="card-text">{{ $categroy_data->name }}</h5>
+                          <p>
+                              {{ $categroy_data->description }}
+                          </p>
+                        </div>
+                      </div>
+
+            </div>
+            @endforeach
+        </div>
+    </div>
+  </div>
+<!------ Tranding Category Part end------>
 @endsection
