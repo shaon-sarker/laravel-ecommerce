@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,9 @@ Route::get('/category/{category_slug}/{product_name}',[FrontendController::class
 Route::post('/add-to-cart',[CartController::class,'store']);
 Route::get('/cart',[CartController::class,'viewcart']);
 Route::post('/delete-to-cart',[CartController::class,'destroy']);
+Route::post('/updatecart',[CartController::class,'update']);
+Route::get('/checkout',[CheckoutController::class,'index']);
+
 
 
 

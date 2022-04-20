@@ -20,7 +20,7 @@ class CartController extends Controller
 
                 if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists()){
 
-                    return response()->json(['status'=>$product_check->name.''."Already Added to Cart"]);
+                    return response()->json(['status'=>$product_check->name. ''. "Already Added to Cart"]);
 
                 }
                 else{
@@ -59,6 +59,24 @@ class CartController extends Controller
         }
         else{
             return response()->json(['status'=>"Login to continue"]);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $product_id = $request->input('product_id');
+        $product_quantity = $request->input('product_quantity');
+
+        if(Auth::check())
+        {
+            if(Cart::where('product_id',$product_id)->where('user_id',Auth::id())->exists())
+            {
+                $cart_update = Cart::where('product_id',$product_id)->where('user_id',Auth::id())->first();
+                $cart_update->product_quantity = $product_quantity;
+                $cart_update->update();
+                return response()->json(['status'=>"Product Update Succefully"]);
+            }
+
         }
     }
 }

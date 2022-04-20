@@ -64,6 +64,9 @@ $(document).ready(function(){
 
     });
 
+
+
+
     $('.delete-cart-item').click(function(e){
         e.preventDefault();
 
@@ -84,6 +87,39 @@ $(document).ready(function(){
             success: function(response){
                 window.location.reload();
                 swal("",response.status,"success");
+            }
+
+        });
+    });
+
+
+
+    $('.changeQuantity').click(function(e){
+        e.preventDefault();
+
+        var product_id = $(this).closest('.product-data').find('.product_id').val();
+        var product_quantity = $(this).closest('.product-data').find('.qty-input').val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        data = {
+            'product_id': product_id,
+            'product_quantity': product_quantity,
+        }
+
+        $.ajax({
+            method: "POST",
+            url: "/updatecart",
+            data: data,
+            success: function(response){
+                window.location.reload();
+                // swal("",response.status,"success");
+                // alert(response)
             }
 
         });
