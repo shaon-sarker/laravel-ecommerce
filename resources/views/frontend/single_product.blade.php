@@ -1,7 +1,7 @@
 @extends('layouts.frontend.master')
 @section('content')
-   <div class="container">
-       <div class="card-shadow">
+   <div class="container mt-5">
+       <div class="card shadow product-data">
            <div class="card-body">
                <div class="row">
                    <div class="col-md-4">
@@ -27,20 +27,19 @@
                        @endif
                        <div class="row">
                            <div class="col-md-2">
+                               <input type="hidden" value="{{ $single_product->id }}" class="product_id">
                                 <label for="">Quantity</label>
                                 <div class="input-group text-center mb-3">
-                                    <span class="input-group-text">-</span>
-                                    <input type="text" name="quantity" class="form-control" value="1">
-                                    <span class="input-group-text">+</span>
+                                    <button class="input-group-text decrement-btn">-</button>
+                                    <input type="text" name="quantity" class="form-control qty-input" value="1">
+                                    <button class="input-group-text increment-btn">+</button>
 
                                 </div>
                            </div>
                            <div class="col-md-10">
                             <br>
-                            <button type="submit" class="btn btn-danger me-3 float-start">Add to Wishlist</button>
-                            <button type="submit" class="btn btn-success me-3 float-start"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-                              </svg>Add to Cart</button>
+                            <button type="submit" class="btn btn-danger me-3 float-start">Add Wishlist <i class="fa fa-heart"></i></button>
+                            <button type="submit" class="btn btn-success me-3 addtoCartbtn float-start">Add to Cart <i class="fa fa-shopping-cart"></i></button>
                            </div>
                        </div>
                    </div>
@@ -49,3 +48,4 @@
        </div>
    </div>
 @endsection
+

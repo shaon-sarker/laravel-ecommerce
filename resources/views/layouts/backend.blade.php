@@ -71,7 +71,6 @@
 <script src="{{ asset('assets/backend/lib/Flot/jquery.flot.pie.js') }}"></script>
 <script src="{{ asset('assets/backend/lib/Flot/jquery.flot.resize.js') }}"></script>
 <script src="{{ asset('assets/backend/lib/flot-spline/jquery.flot.spline.js') }}"></script>
-
 <script src="{{ asset('assets/backend/js/starlight.js') }}"></script>
 <script src="{{ asset('assets/backend/js/ResizeSensor.js') }}"></script>
 <script src="{{ asset('assets/backend/js/dashboard.js') }}"></script>
