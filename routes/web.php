@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +36,22 @@ Route::get('/cart',[CartController::class,'viewcart']);
 Route::post('/delete-to-cart',[CartController::class,'destroy']);
 Route::post('/updatecart',[CartController::class,'update']);
 Route::get('/checkout',[CheckoutController::class,'index']);
+Route::post('/checkout/order',[CheckoutController::class,'placeorder'])->name('checkout.order');
+
+
+Route::get('/userdashboad',[UserController::class,'index'])->name('user.dash');
+Route::get('/vieworder/{id}',[UserController::class,'viewuserorder']);
+
+Route::post('/add-to-wishlist',[WishlistController::class,'add']);
+Route::post('/delete-to-wishlist',[WishlistController::class,'destroy']);
+
+
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/wishlist',[WishlistController::class,'index']);
+
+ });
 
 
 
@@ -54,4 +73,11 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
     //Product panel
     Route::get('/product',[ProductController::class,'index'])->name('product.index');
     Route::post('/product/insert',[ProductController::class,'store'])->name('product.store');
+
+    //Order Controller
+    Route::get('/userorder',[OrderController::class,'index']);
+    Route::get('/admin/vieworder/{id}',[OrderController::class,'vieworder']);
+    Route::post('updateorder/{id}',[OrderController::class,'updateuserorder']);
+    Route::get('/orderhistory',[OrderController::class,'vieworderhistory']);
+
  });

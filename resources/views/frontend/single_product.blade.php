@@ -40,9 +40,9 @@
                             <br>
                             @if ($single_product->quantity > 0)
                             <button type="submit" class="btn btn-success me-3 addtoCartbtn float-start">Add to Cart <i class="fa fa-shopping-cart"></i></button>
-                            <button type="submit" class="btn btn-danger me-3 float-start">Add Wishlist <i class="fa fa-heart"></i></button>
+                            <button type="submit" class="btn btn-danger me-3 addtoWishlistbtn float-start">Add Wishlist <i class="fa fa-heart"></i></button>
                             @else
-                            <button type="submit" class="btn btn-danger me-3 float-start">Add Wishlist <i class="fa fa-heart"></i></button>
+                            <button type="submit" class="btn btn-danger me-3 addtoWishlistbtn float-start">Add Wishlist <i class="fa fa-heart"></i></button>
                             @endif
                            </div>
                        </div>

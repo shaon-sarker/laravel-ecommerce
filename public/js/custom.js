@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+    //ADD TO CART START
     $('.addtoCartbtn').click(function(e){
         e.preventDefault();
 
@@ -28,9 +29,70 @@ $(document).ready(function(){
 
     });
 
+    //ADD TO CART END
+
+    //ADD WISHLIST ITEM
+    $('.addtoWishlistbtn').click(function(e){
+        e.preventDefault();
+
+        var product_id = $(this).closest('.product-data').find('.product_id').val();
+        // var product_quantity = $(this).closest('.product-data').find('.qty-input').val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "/add-to-wishlist",
+            data: {
+                'product_id': product_id,
+                // 'product_quantity': product_quantity,
+            },
+            success: function(response){
+                swal(response.status);
+            }
+
+        });
+
+
+    });
+
+    //ADD WISHLIST ITEM
+
+     //DELETE WISHLIST ITEM START
+     $('.delete-wishlist-item').click(function(e){
+        e.preventDefault();
+
+        var product_id = $(this).closest('.product-data').find('.product_id').val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            method: "POST",
+            url: "/delete-to-wishlist",
+            data: {
+                'product_id': product_id,
+            },
+            success: function(response){
+                window.location.reload();
+                swal("",response.status,"success");
+            }
+
+        });
+    });
+    //DELETE WISHLIST ITEM START
 
 
 
+
+    //INCREMENT & DECREMENT CART AMOUNT START
     $('.increment-btn').click(function(e){
         e.preventDefault();
 
@@ -63,10 +125,10 @@ $(document).ready(function(){
         }
 
     });
+ //INCREMENT & DECREMENT CART AMOUNT START
 
 
-
-
+    //DELETE CART ITEM START
     $('.delete-cart-item').click(function(e){
         e.preventDefault();
 
@@ -91,9 +153,9 @@ $(document).ready(function(){
 
         });
     });
+    //DELETE CART ITEM START
 
-
-
+    //CHANGE QUANTIY WHEN STAY IN CART PAGE
     $('.changeQuantity').click(function(e){
         e.preventDefault();
 
@@ -124,6 +186,6 @@ $(document).ready(function(){
 
         });
     });
-
+//CHANGE QUANTIY WHEN STAY IN CART PAGE
 
 });
