@@ -24,6 +24,8 @@ class Order extends Model
         'city',
         'pincode',
         'comment',
+        'payment_mode',
+        'payment_id',
         'status',
         'message',
         'tracking_no',

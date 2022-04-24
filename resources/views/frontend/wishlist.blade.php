@@ -33,11 +33,11 @@
                     <span class="badge bg-danger">Stock Out</span>
                     @endif
                 </div>
-                <div class="col-md-2 pt-4">
-                    <button class="btn btn-sm btn-success addtoCartbtn"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
+                <div class="col-md-2 pt-5">
+                    <button class="btn btn-success addtoCartbtn"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
                 </div>
-                <div class="col-md-2 pt-4">
-                    <button class="btn btn-sm btn-danger delete-wishlist-item"><i class="fa fa-trash"></i> Remove</button>
+                <div class="col-md-2 pt-5">
+                    <button class="btn btn-danger delete-wishlist-item"><i class="fa fa-trash"></i> Remove</button>
                 </div>
             </div>
             @endforeach

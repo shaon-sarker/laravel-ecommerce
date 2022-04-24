@@ -22,17 +22,21 @@ class WishlistController extends Controller
             $product_id = $request->input('product_id');
             if(Product::find($product_id))
             {
-                Wishlist::insert([
-                    'product_id'=>$product_id,
-                    'user_id'=>Auth::id(),
-                    'created_at'=>Carbon::now(),
-                ]);
-            return response()->json(['status'=>"Added to Wishlist"]);
-
+                if(Wishlist::where('product_id',$product_id)->exists())
+                {
+                    return response()->json(['status'=>"Product Already Wishlist exit"]);
+                }
+                else{
+                    Wishlist::insert([
+                        'product_id'=>$product_id,
+                        'user_id'=>Auth::id(),
+                        'created_at'=>Carbon::now(),
+                    ]);
+                    return response()->json(['status'=>"Added to Wishlist"]);
+                }
             }
-            else
-            {
-                return response()->json(['status'=>"Product doesnot exit"]);
+            else{
+                return response()->json(['status'=>"Product Doesnot exit"]);
 
             }
         }

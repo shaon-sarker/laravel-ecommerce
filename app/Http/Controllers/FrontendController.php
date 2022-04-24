@@ -46,4 +46,39 @@ class FrontendController extends Controller
             return back();
         }
     }
+
+    public function productlistajax()
+    {
+        $products = Product::select('name')->where('status','0')->get();
+        $data = [];
+        foreach($products as $item)
+        {
+            $data[] = $item['name'];
+
+        }
+        return $data;
+    }
+
+    public function searchproduct(Request $request)
+    {
+        $search_product = $request->product_name;
+
+        if($search_product != "")
+        {
+            $product_search = Product::where("name","LIKE","%$search_product%")->first();
+            if($product_search)
+            {
+                return redirect('category/'.$product_search->rtl_category->slug.'/'.$product_search->name);
+
+            }
+            else
+            {
+                return back()->with('status','Not Macthing items List');
+            }
+        }
+        else
+        {
+            return back();
+        }
+    }
 }

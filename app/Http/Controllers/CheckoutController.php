@@ -62,12 +62,15 @@ class CheckoutController extends Controller
         $order->pincode = $request->input('pincode');
         $order->comment = $request->input('comment');
 
+        $order->payment_mode = $request->input('payment_mode');
+        $order->payment_id = $request->input('payment_id');
+
         //To Calulate Total Price
         $total = 0;
         $cartitems_total = Cart::where('user_id',Auth::id())->get();
         foreach($cartitems_total as $prod)
         {
-            $total += $prod->rtn_product->selling_price;
+            $total += $prod->rtn_product->selling_price * $prod->product_quantity;
         }
 
         $order->total_price = $total;
@@ -111,8 +114,54 @@ class CheckoutController extends Controller
             $user->comment = $request->input('comment');
             $user->update();
         }
+        if($request->input('payment_mode') == "Pay with Razarpay")
+        {
 
-        return back()->with('status',"Successfully Placed Order");
+            return back()->with('status',"Successfully Placed Order by Razarpay");
+            // return response()->json(['status'=>"Successfully Placed Order by Razarpay"]);
 
+
+        }
+        else{
+            return back()->with('status',"Successfully Placed Order");
+        }
+
+
+    }
+
+    public function rzorpay(Request $request)
+    {
+        $cartitems = Cart::where('user_id',Auth::id())->get();
+        $total_price = 0;
+        foreach($cartitems as $item)
+        {
+            $total_price += $item->rtn_product->selling_price * $item->product_quantity;
+        }
+        $fname = $request->input('fname');
+        $lname = $request->input('lname');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $address01 = $request->input('address01');
+        $address02 = $request->input('address02');
+        $country = $request->input('country');
+        $state = $request->input('state');
+        $city = $request->input('city');
+        $pincode = $request->input('pincode');
+        $comment = $request->input('comment');
+
+        return response()->json([
+                'fname'=>$fname,
+                'lname'=>$lname,
+                'email'=>$email,
+                'phone'=>$phone,
+                'address01'=>$address01,
+                'address02'=>$address02,
+                'country'=>$country,
+                'state'=>$state,
+                'city'=>$city,
+                'pincode'=>$pincode,
+                'comment'=>$comment,
+                'total_price'=>$total_price,
+        ]);
     }
 }

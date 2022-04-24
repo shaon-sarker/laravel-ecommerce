@@ -39,17 +39,20 @@ Route::get('/checkout',[CheckoutController::class,'index']);
 Route::post('/checkout/order',[CheckoutController::class,'placeorder'])->name('checkout.order');
 
 
-Route::get('/userdashboad',[UserController::class,'index'])->name('user.dash');
-Route::get('/vieworder/{id}',[UserController::class,'viewuserorder']);
+
 
 Route::post('/add-to-wishlist',[WishlistController::class,'add']);
 Route::post('/delete-to-wishlist',[WishlistController::class,'destroy']);
 
+Route::get('/productlist',[FrontendController::class,'productlistajax']);
+Route::post('/searchproduct',[FrontendController::class,'searchproduct']);
 
 
 Route::group(['middleware' => ['auth']], function () {
-
     Route::get('/wishlist',[WishlistController::class,'index']);
+    Route::post('/processtopay',[CheckoutController::class,'rzorpay']);
+    Route::get('/userdashboad',[UserController::class,'index'])->name('user.dash');
+    Route::get('/vieworder/{id}',[UserController::class,'viewuserorder']);
 
  });
 
