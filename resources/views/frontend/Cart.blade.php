@@ -1,6 +1,17 @@
 @extends('layouts.frontend.master')
 @section('content')
-<div class="container mt-5">
+<div class="container-fluid bg-warning pt-1 pb-1">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="">
+            <ol class="breadcrumb pt-2">
+              <li class="breadcrumb-item fs-5 fw-bold text-dark">Home</li>
+              <li class="breadcrumb-item fs-5 fw-bold"><a href="#" class="text-dark">Cart</a></li>
+              <li class="breadcrumb-item fs-5 fw-bold"><a href="#" class="text-dark">Cart Page</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container mt-5 mb-5">
     <div class="card shadow">
         <div class="card-body">
             @php

@@ -15,7 +15,6 @@
             <h5>Welcome to Admin page</h5>
             <p>This is a starter page</p>
           </div><!-- sl-page-title -->
-
         </div><!-- sl-pagebody -->
       </div><!-- sl-mainpanel -->
 @endsection

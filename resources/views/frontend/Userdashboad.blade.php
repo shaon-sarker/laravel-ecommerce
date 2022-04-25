@@ -1,6 +1,18 @@
 @extends('layouts.frontend.master')
 @section('content')
-    <div class="container pt-5">
+<div class="container-fluid bg-warning pt-1 pb-1">
+    <div class="container">
+        <nav aria-label="breadcrumb" class="">
+            <ol class="breadcrumb pt-2">
+              <li class="breadcrumb-item fs-5 fw-bold text-dark">Home</li>
+              <li class="breadcrumb-item fs-5 fw-bold"><a href="#" class="text-dark">User</a></li>
+              <li class="breadcrumb-item fs-5 fw-bold"><a href="#" class="text-dark">UserDashboad Page</a></li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container pt-5 mb-5">
         <div class="row">
             <div class="col-md-12">
                 <div class="card shadow">
