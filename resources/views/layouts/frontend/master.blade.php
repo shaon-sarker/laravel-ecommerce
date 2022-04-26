@@ -37,10 +37,6 @@
                      <a class="nav-link active text-white" aria-current="page" href="{{ url('/') }}">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-white" href="#">Category
-                     </a>
-                  </li>
-                  <li class="nav-item">
                      <a class="nav-link text-white" href="{{ url('/wishlist') }}">Wishlist<span class="badge bg-primary wish-count">{{ App\Models\Wishlist::where('user_id', Auth::id())->count() }}</span></a>
                   </li>
                   <li class="nav-item">

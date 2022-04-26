@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Image;
@@ -23,7 +24,7 @@ class CategoryController extends Controller
             'meta_keywords'=>$request->meta_keywords,
             'meta_description'=>$request->meta_description,
             'popular'=>$request->popular,
-            'updated_at'=>Carbon::now(),
+            'created_at'=>Carbon::now(),
         ]);
 
         $new_category_image = $request->image;

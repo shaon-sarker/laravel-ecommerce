@@ -4,13 +4,13 @@
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
+            <img src="{{ asset('fronted/image/3.jpg') }}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
             <img src="{{ asset('fronted/image/2.jpg') }}" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="{{ asset('fronted/image/1.jpg') }}" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('fronted/image/3.jpg') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('fronted/image/b1.jpg') }}" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
             <img src="{{ asset('fronted/image/4.jpg') }}" class="d-block w-100" alt="...">
@@ -61,19 +61,14 @@
             </div>
             @foreach ($category as $categroy_data)
             <div class="col-md-3 mt-5">
-
                     <div class="card" style="width: 18rem;">
                         <a href="{{ url('/category/product') }}/{{ $categroy_data->slug }}">
                             <img src="{{ asset('uploads/category') }}/{{ $categroy_data->image }}" class="card-img-top" alt="Category Image">
                         </a>
                         <div class="card-body">
                           <h5 class="card-text">{{ $categroy_data->name }}</h5>
-                          <p>
-                              {{ $categroy_data->description }}
-                          </p>
                         </div>
-                      </div>
-
+                    </div>
             </div>
             @endforeach
         </div>
