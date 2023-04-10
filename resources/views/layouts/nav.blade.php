@@ -52,13 +52,16 @@
     <a href="#" class="sl-menu-link">
       <div class="sl-menu-item">
         <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
-        <span class="menu-item-label">Tables</span>
+        <span class="menu-item-label">Settings</span>
         <i class="menu-item-arrow fa fa-angle-down"></i>
       </div><!-- menu-item -->
     </a><!-- sl-menu-link -->
     <ul class="sl-menu-sub nav flex-column">
-      <li class="nav-item"><a href="table-basic.html" class="nav-link">Basic Table</a></li>
-      <li class="nav-item"><a href="table-datatable.html" class="nav-link">Data Table</a></li>
+      <li class="nav-item"><a href="{{ route('maintaince') }}" class="nav-link">Maintance</a></li>
+      <li class="nav-item"><a href="{{ route('maintaince.up') }}" class="nav-link">Maintance Up</a></li>
+      <li class="nav-item"><a href="{{ url('/env-editor') }}" target="__blank"  class="nav-link">Env File Manage</a></li>
+
+      <li class="nav-item"><a href="{{ route('mail')}}" class="nav-link">Mail</a></li>
     </ul>
     <a href="#" class="sl-menu-link">
       <div class="sl-menu-item">

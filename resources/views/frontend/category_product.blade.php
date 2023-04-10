@@ -20,7 +20,7 @@
             </div>
             @foreach ($product as $product_data)
                 <div class="col-md-3">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <a href="{{ url('/category') }}/{{ $category->slug }}/{{ $product_data->name }}">
                             <img src="{{ asset('uploads/product') }}/{{ $product_data->image }}" class="card-img-top" alt="Tranding Image"></a>
                         <div class="card-body">

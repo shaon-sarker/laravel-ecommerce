@@ -16,6 +16,7 @@
       <link href="{{ asset('css/frontend.min.css') }}" rel="stylesheet">
    </head>
    <body>
+
       <nav class="navbar navbar-expand-lg navbar-light bg-dark">
          <div class="container">
             <a class="navbar-brand text-white" href="{{ url('/') }}"><img src="{{ asset('fronted/image/logo.png') }}" alt="" class="w-75"></a>
@@ -225,6 +226,7 @@
          </div>
          <!-- Copyright -->
       </footer>
+      {{-- @include('cookie-consent::index') --}}
       <!-- Footer -->
       <!-- Optional JavaScript; choose one of the two! -->
       <!-- Option 1: Bootstrap Bundle with Popper -->

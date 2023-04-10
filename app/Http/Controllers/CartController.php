@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
+
     public function store(Request $request){
         $product_id = $request->input('product_id');
         $product_quantity = $request->input('product_quantity');
